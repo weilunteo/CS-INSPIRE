@@ -8,7 +8,7 @@ import Loader from "./Loader";
 import withLoader from "./withLoader";
 // import Appbar from "./Appbar";
 // import FlexBetween from "./FlexBetween";
-// import Form from "./Form";
+import Form from "./Form";
 
 
 export {
@@ -19,10 +19,10 @@ export {
     Testimonials,
     Feedback,
     Loader,
-    withLoader
+    withLoader,
     // Appbar,
     // FlexBetween,
-    // Form
+    Form
 
 };
 
