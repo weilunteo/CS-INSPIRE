@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import data from '../database/data';
-import { topThreeBias } from '../helper/helper.js';
-import { useDispatch, useSelector} from 'react-redux';
+import { topThreeBias, getServerData, attemptsNumber } from '../helper/helper.js';
+import { useDispatch, useSelector } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Player } from '@lottiefiles/react-lottie-player';
@@ -14,26 +14,33 @@ import { resetAllAction } from '../redux/question_reducer';
 
 export default function ResultTable() {
   const dispatch = useDispatch();
-  const { questions: { queue, answers }, result: { result, userId } } = useSelector(state => state)
-  const threeBiases = topThreeBias(result, answers);
+  const { questions: { queue, answers }, result: { result, userId } } = useSelector(state => state);
 
-  // Retrieve result data from persistent storage
+  const [threeBiases, setThreeBiases] = useState([]);
+
   useEffect(() => {
-    const storedResultData = localStorage.getItem('resultData');
-    if (storedResultData) {
-      const parsedResultData = JSON.parse(storedResultData);
-
-      // Dispatch the action to set the result data in the Redux store
-      dispatch(Action.pushResultAction(parsedResultData.result));
+    // Retrieve threeBiases from localStorage or calculate it
+    const storedBiases = localStorage.getItem('threeBiases');
+    if (storedBiases) {
+      setThreeBiases(JSON.parse(storedBiases));
+    } else {
+      const biases = topThreeBias(result, answers);
+      setThreeBiases(biases);
+      localStorage.setItem('threeBiases', JSON.stringify(biases));
     }
+
+    // Dispatch the action to store user result
+    const attempts = attemptsNumber(result);
+    usePublishResult({ result, attempts, biases: threeBiases });
+
   }, []);
 
   return (
     <div className="font-poppins place-content-center">
       <Carousel showStatus={false} showIndicators={false} showThumbs={false} autoPlay interval={4000} infiniteLoop>
-        {threeBiases.slice(0, 3).map((biasType, index) => (
+        {threeBiases.map((biasType, index) => (
           <div key={index} className="carousel-slide bg-white rounded mx-20 py-18">
-            <h2 className="bias-type font-semibold mb-6 text-[30px] pt-4">{index+1+ ')  ' + biasType}</h2>
+            <h2 className="bias-type font-semibold mb-6 text-[30px] pt-4">{index + 1 + ')  ' + biasType}</h2>
             <div className="lottie-player">
               <Player
                 loop

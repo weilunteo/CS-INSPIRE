@@ -46,13 +46,16 @@ export function getServerData(url) {
 
 // post server data
 export function postServerData(data) {
-  const url = 'http://localhost:3000/api/result';
-  axios
-    .post(url, data)
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.log(error)
+    return new Promise((resolve, reject) => {
+      const url = 'http://localhost:3000/api/result';
+      axios
+        .post(url, data)
+        .then(response => {
+          resolve(response.data);
+        })
+        .catch(error => {
+          reject(error);
+        });
     });
-}
+  }
+  
