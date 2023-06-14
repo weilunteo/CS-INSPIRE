@@ -20,8 +20,8 @@ const Result = () => {
     const threeBiases = topThreeBias(result, answers);
     console.log(threeBiases)
 
-    // store user result 
-    usePublishResult({ result, attempts, biases: threeBiases });
+     // Dispatch the action to store user result 
+     usePublishResult({ result, attempts, biases: threeBiases });
 
   }, []);
 

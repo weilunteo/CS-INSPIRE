@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import data from '../database/data';
 import { topThreeBias } from '../helper/helper.js';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { usePublishResult } from '../hooks/setResult';
+
 
 /* Import actions */
 import { resetResultAction } from '../redux/result_reducer';
@@ -14,7 +16,17 @@ export default function ResultTable() {
   const dispatch = useDispatch();
   const { questions: { queue, answers }, result: { result, userId } } = useSelector(state => state)
   const threeBiases = topThreeBias(result, answers);
-  
+
+  // Retrieve result data from persistent storage
+  useEffect(() => {
+    const storedResultData = localStorage.getItem('resultData');
+    if (storedResultData) {
+      const parsedResultData = JSON.parse(storedResultData);
+
+      // Dispatch the action to set the result data in the Redux store
+      dispatch(Action.pushResultAction(parsedResultData.result));
+    }
+  }, []);
 
   return (
     <div className="font-poppins place-content-center">

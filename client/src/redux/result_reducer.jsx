@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 export const resultReducer = createSlice({
     name: 'result',
     initialState: {
-        userId: null,
+        // userId: null,
         result: []
     },
     reducers: {
@@ -19,7 +19,7 @@ export const resultReducer = createSlice({
         },
         resetResultAction: () => {
             return{
-                userId: null,
+                // userId: null,
                 result: []  
 
             }
