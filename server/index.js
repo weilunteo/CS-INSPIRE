@@ -5,24 +5,37 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const {config} = require('dotenv');
-const router = require('./router/route.js');
+config();
 
+const router = require('./router/route');
+const authRoutes = require('./router/auth');
+const register = require('./controllers/auth.js');
+const {verifyToken} = require("./middleware/auth.js");
+const userRoutes = require("./router/user");
+const User = require('./models/User.js');
 const app = express();
 
 /* middlewares */
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
-config();
 
 /* database */
-mongoose.connect("mongodb+srv://weilunteo:hello123@account.o6t459v.mongodb.net/cstopguns?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://weilunteo:hello123@account.o6t459v.mongodb.net/cstopguns?retryWrites=true&w=majority",
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+);
 
 /* application port */
 const port = process.env.PORT || 5000;
 
 /* routes */
 app.use('/api', router); /* apis */
+app.use('/auth', authRoutes); /* auth */
+app.use("/users", userRoutes);
+app.post('/auth/register', register);
 
 /** route  */
 app.get('/', (req, res) => {
