@@ -4,12 +4,12 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const cookieParser = require("cookie-parser");
 const {config} = require('dotenv');
 config();
 
 const router = require('./router/route');
-const authRoutes = require('./router/auth');
-const register = require('./controllers/auth.js');
+const authRoutes = require('./router/auth.js');
 const {verifyToken} = require("./middleware/auth.js");
 const userRoutes = require("./router/user");
 const User = require('./models/User.js');
@@ -17,7 +17,14 @@ const app = express();
 
 /* middlewares */
 app.use(morgan('tiny'));
-app.use(cors());
+app.use(
+    cors({
+      origin: ["http://localhost:3000"],
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+    })
+  );
+app.use(cookieParser());
 app.use(express.json());
 
 /* database */
@@ -26,23 +33,25 @@ mongoose.connect("mongodb+srv://weilunteo:hello123@account.o6t459v.mongodb.net/c
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }
-);
+)
+;
 
 /* application port */
 const port = process.env.PORT || 5000;
 
 /* routes */
 app.use('/api', router); /* apis */
-app.use('/auth', authRoutes); /* auth */
+app.use('/', authRoutes); /* auth */
 app.use("/users", userRoutes);
-app.post('/auth/register', register);
+
+// app.post('/auth/register', register);
 
 /** route  */
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World!'
-    })
-});
+// app.get('/', (req, res) => {
+//     res.json({
+//         message: 'Hello World!'
+//     })
+// });
 
 
 app.listen(port, () => {
