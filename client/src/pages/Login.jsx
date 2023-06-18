@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../redux/state";
 import FlexBetween from "../components/FlexBetween";
 import styles from "../style";
+import toast, { Toaster } from 'react-hot-toast';
 
 const loginSchema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Required"),
@@ -23,15 +24,50 @@ const Login = () => {
   const { palette } = useTheme();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isNonMobileScreens = useMediaQuery("(min-width: 600px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
-  const handleFormSubmit = async (values, onSubmitProps) => {
-    // Add your login logic here
+  const handleError = (err) =>
+    toast.error(err, {
+      position: "top-right",
+    });
+  const handleSuccess = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+    });
+
+  const handleFormSubmit = async (values) => {
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await response.json();
+      console.log("Response:", response);
+      console.log("Data:", data);
+      if (response.ok) {
+        dispatch(
+          setLogin({
+            user: data.user,
+            token: data.token,
+          })
+        );
+        handleSuccess("Login successful!");
+        setTimeout(() => {
+          navigate("/home");
+        }, 1000);
+      } else {
+        handleError("Login failed. Please try again.");
+      }
+    } catch (error) {
+      handleError("An error occurred. Please try again.");
+    }
   };
 
   return (
     
     <div className={`h-screen flex items-center justify-center ${styles.paddingX}`}>
+       <Toaster/>
       <Box
         width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem"
