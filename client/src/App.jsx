@@ -10,6 +10,7 @@ import Login from '../src/pages/Login';
 import PreQuiz from './pages/PreQuiz';
 import Quiz from './pages/Quiz';
 import Result from './pages/Result';
+import Register from './pages/Register';
 
 
 const App = () => {
@@ -21,15 +22,14 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/pre-quiz" element={<PreQuiz />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/result" element={<Result />} />
         </Routes>
-      </BrowserRouter>
     </ThemeProvider>
   );
 };
