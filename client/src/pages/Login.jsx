@@ -54,7 +54,7 @@ const Login = () => {
         );
         handleSuccess("Login successful!");
         setTimeout(() => {
-          navigate("/home");
+          navigate("/pre-quiz");
         }, 1000);
       } else {
         handleError("Login failed. Please try again.");

@@ -11,6 +11,8 @@ import PreQuiz from './pages/PreQuiz';
 import Quiz from './pages/Quiz';
 import Result from './pages/Result';
 import Register from './pages/Register';
+import Community from './pages/Community';
+import Toolkit from './pages/Toolkit';
 
 
 const App = () => {
@@ -20,6 +22,7 @@ const App = () => {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
+    <div>
     <ThemeProvider theme={theme}>
       <CssBaseline />
         <Routes>
@@ -29,8 +32,12 @@ const App = () => {
           <Route path="/pre-quiz" element={<PreQuiz />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/toolkit" element={<Toolkit />} />
+
         </Routes>
     </ThemeProvider>
+    </div>
   );
 };
 

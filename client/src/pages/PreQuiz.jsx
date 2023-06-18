@@ -29,7 +29,7 @@ export default function PreQuiz() {
 
 
         <Link
-          to='/start-quiz'
+          to='/quiz'
           type="button"
           className={`mb-8 py-4 px-6 bg-blue-gradient
           font-poppins font-medium text-[18px] text-primary outline-none rounded
