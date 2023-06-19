@@ -3,8 +3,9 @@ import {Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, u
 import {Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close} from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import {setMode, setLogout} from '../redux/state.js'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
 import FlexBetween from './FlexBetween';
+import Dropdown from '../components/Dropdown';
 
 
 const Appbar = () => {
@@ -21,17 +22,27 @@ const Appbar = () => {
     const primaryDark = theme.palette.primary.dark;
     const alt = theme.palette.background.alt;
 
-    const fullName = "Wei Lun";
+    const fullName = "Maverick";
     // const fullName = `${user.firstName} ${user.lastName}`;
+
+    const location = useLocation();
+
+    const getNavbarName = () => {
+      if (location.pathname === "/toolkit") {
+        return "My Learning";
+      }
+      // Add more conditions for other routes if needed
+
+      // Default name for other routes
+      return "Community Discussion";
+    };
 
 
     return (
         <FlexBetween padding="1rem 6%" backgroundColor={alt}>
           <FlexBetween gap="1.75rem">
-            <Typography
-              fontWeight="bold"
-              fontSize="20px"
-              color="primary"
+            
+            <Typography fontWeight="bold" fontSize="20px" color="primary"
               // onClick={() => navigate("/home")}
               // sx={{
               //   "&:hover": {
@@ -40,9 +51,9 @@ const Appbar = () => {
               //   },
               // }}
             >
-              Community Discussion
+              <Dropdown/>
             </Typography>
-            {isNonMobileScreens && (
+            {/* {isNonMobileScreens && (
               <FlexBetween
                 backgroundColor={neutralLight}
                 borderRadius="9px"
@@ -54,7 +65,7 @@ const Appbar = () => {
                   <Search />
                 </IconButton>
               </FlexBetween>
-            )}
+            )} */}
           </FlexBetween>
     
           {/* DESKTOP NAV */}
@@ -74,7 +85,7 @@ const Appbar = () => {
               <Message sx={{ fontSize: "25px" }} />
               <Notifications sx={{ fontSize: "25px" }} />
               <Help sx={{ fontSize: "25px" }} />
-              <FormControl variant="standard" value={fullName}>
+              {/* <FormControl variant="standard" value={fullName}> */}
                 <Select
                   value={fullName}
                   sx={{
@@ -95,6 +106,7 @@ const Appbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
+                  
                   <MenuItem
                   onClick={() => {
                     dispatch(setLogout());
@@ -105,7 +117,7 @@ const Appbar = () => {
                 </MenuItem>
 
                 </Select>
-              </FormControl>
+              {/* </FormControl> */}
             </FlexBetween>
           ) : (
             <IconButton

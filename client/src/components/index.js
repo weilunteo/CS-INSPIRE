@@ -6,8 +6,8 @@ import Testimonials from "./Testimonials";
 import Feedback from "./Feedback"
 import Loader from "./Loader";
 import withLoader from "./withLoader";
-// import Appbar from "./Appbar";
-// import FlexBetween from "./FlexBetween";
+import Appbar from "./Appbar";
+import FlexBetween from "./FlexBetween";
 import Form from "./Form";
 
 
@@ -20,8 +20,8 @@ export {
     Feedback,
     Loader,
     withLoader,
-    // Appbar,
-    // FlexBetween,
+    Appbar,
+    FlexBetween,
     Form
 
 };

@@ -4,10 +4,10 @@ const verifyToken = require('../middleware/auth.js');
 const router = express.Router();
 
 /* read */
-router.get('/:id', verifyToken, getUser);
-router.get('/:id/friends', verifyToken, getUserFriends);
+router.get('/:id', getUser);
+router.get('/:id/friends', getUserFriends);
 
-/* update */
-router.patch('/:id/:friendId', verifyToken, addRemoveFriend);
+/* update -- patch */
+router.patch('/:id/:friendId', addRemoveFriend);
 
 module.exports = router;
