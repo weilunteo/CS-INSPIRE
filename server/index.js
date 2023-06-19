@@ -17,18 +17,13 @@ const app = express();
 
 /* middlewares */
 app.use(morgan('tiny'));
-app.use(
-    cors({
-      origin: ["http://localhost:5173"],
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      credentials: true,
-    })
-  );
+app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
 /* database */
-mongoose.connect("mongodb+srv://weilunteo:hello123@account.o6t459v.mongodb.net/cstopguns?retryWrites=true&w=majority",
+mongoose.connect(process.env.MONGODB_URI,
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -40,34 +40,39 @@ const Register = () => {
       position: "top-right",
     });
     
-  const handleFormSubmit = async (values) => {
-    try {
-      const response = await fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      const data = await response.json();
-      console.log("Response:", response);
-      console.log("Data:", data);
-      if (response.ok) {
-        dispatch(
-          setLogin({
-            user: data.user,
-            token: data.token,
-          })
-        );
-        handleSuccess("Registration successful!");
-        setTimeout(() => {
-          navigate("/login");
-        }, 1000);
-      } else {
-        handleError("Registration failed. Please try again.");
-      }
-    } catch (error) {
-      handleError("An error occurred. Please try again.");
-    }
-  };
+    const handleFormSubmit = async (values) => {
+        try {
+          const response = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(values),
+          });
+          const data = await response.json();
+          console.log("Response:", response);
+          console.log("Data:", data);
+          if (response.ok) {
+            if (data.success) {
+              dispatch(
+                setLogin({
+                  user: data.user,
+                  token: data.token,
+                })
+              );
+              handleSuccess("Registration successful!");
+              setTimeout(() => {
+                navigate("/login");
+              }, 1000);
+            } else {
+              handleError(data.message || "Registration failed. Please try again.");
+            }
+          } else {
+            handleError(data.message || "Registration failed. Please try again.");
+          }
+        } catch (error) {
+          handleError("An error occurred. Please try again.");
+        }
+      };
+      
           
   return (
    

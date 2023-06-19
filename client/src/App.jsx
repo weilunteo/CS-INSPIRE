@@ -17,12 +17,11 @@ import Toolkit from './pages/Toolkit';
 
 const App = () => {
 
-
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
-    <div>
+    <div className='app'>
     <ThemeProvider theme={theme}>
       <CssBaseline />
         <Routes>
@@ -34,7 +33,6 @@ const App = () => {
           <Route path="/result" element={<Result />} />
           <Route path="/community" element={<Community />} />
           <Route path="/toolkit" element={<Toolkit />} />
-
         </Routes>
     </ThemeProvider>
     </div>

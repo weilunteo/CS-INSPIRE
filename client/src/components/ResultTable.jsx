@@ -40,7 +40,7 @@ export default function ResultTable() {
       <Carousel showStatus={false} showIndicators={false} showThumbs={false} autoPlay interval={4000} infiniteLoop>
         {threeBiases.map((biasType, index) => (
           <div key={index} className="carousel-slide bg-white rounded mx-20 py-18">
-            <h2 className="bias-type font-semibold mb-6 text-[30px] pt-4">{index + 1 + ')  ' + biasType}</h2>
+            <h2 className="bias-type font-semibold mb-6 text-[30px] pt-4">{biasType}</h2>
             <div className="lottie-player">
               <Player
                 loop
@@ -60,3 +60,4 @@ export default function ResultTable() {
     </div>
   );
 }
+

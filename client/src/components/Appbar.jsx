@@ -2,9 +2,10 @@ import {useState} from 'react';
 import {Box, IconButton, InputBase, Typography, Select, MenuItem, FormControl, useTheme, useMediaQuery} from '@mui/material';
 import {Search, Message, DarkMode, LightMode, Notifications, Help, Menu, Close} from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
-import {setMode, setLogout} from '../redux/state';
+import {setMode, setLogout} from '../redux/state.js'
 import { useNavigate } from 'react-router-dom';
 import FlexBetween from './FlexBetween';
+
 
 const Appbar = () => {
     const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -12,6 +13,7 @@ const Appbar = () => {
     const navigate = useNavigate();
     const user = useSelector((state) => state.user);
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+
     const theme = useTheme();
     const neutralLight = theme.palette.neutral.light;
     const dark = theme.palette.neutral.dark;
@@ -58,13 +60,17 @@ const Appbar = () => {
           {/* DESKTOP NAV */}
           {isNonMobileScreens ? (
             <FlexBetween gap="2rem">
-              <IconButton onClick={() => dispatch(setMode())} >
-                {theme.palette.mode === "dark" ? (
-                  <DarkMode sx={{ fontSize: "25px" }} />
-                ) : (
-                  <LightMode sx={{ color: dark, fontSize: "25px" }} />
-                )}
-              </IconButton>
+             <IconButton onClick={() => {
+              dispatch(setMode());
+              console.log('IconButton clicked');
+            }}>
+              {theme.palette.mode === "dark" ? (
+                <DarkMode sx={{ fontSize: "25px" }} />
+              ) : (
+                <LightMode sx={{ color: dark, fontSize: "25px" }} />
+              )}
+            </IconButton>
+
               <Message sx={{ fontSize: "25px" }} />
               <Notifications sx={{ fontSize: "25px" }} />
               <Help sx={{ fontSize: "25px" }} />
@@ -89,7 +95,15 @@ const Appbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
-                  <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+                  <MenuItem
+                  onClick={() => {
+                    dispatch(setLogout());
+                    navigate('/');
+                  }}
+                >
+                  Log Out
+                </MenuItem>
+
                 </Select>
               </FormControl>
             </FlexBetween>
@@ -164,9 +178,14 @@ const Appbar = () => {
                     <MenuItem value={fullName}>
                       <Typography>{fullName}</Typography>
                     </MenuItem>
-                    <MenuItem onClick={() => dispatch(setLogout())}>
-                      Log Out
-                    </MenuItem>
+                    <MenuItem
+                  onClick={() => {
+                    dispatch(setLogout());
+                    navigate('/');
+                  }}
+                >
+                  Log Out
+                </MenuItem>
                   </Select>
                 </FormControl>
               </FlexBetween>
