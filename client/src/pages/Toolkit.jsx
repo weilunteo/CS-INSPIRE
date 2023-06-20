@@ -1,45 +1,34 @@
-import React from 'react';
-import AppbarTwo from '../components/AppbarTwo.jsx';
-import Card from '../components/Card';
+import React from 'react'
+import styles from '../style'
+import CardOthers from '../components/CardOthers'
+import CardUser from '../components/CardUser'
+import AppbarTwo from '../components/AppbarTwo'
 
-export default function Toolkit() {
-  const cards = [
-    {
-      id: 1,
-      image: 'image1.jpg',
-      description: 'Card 1 description',
-      link: '/card1',
-    },
-    {
-      id: 2,
-      image: 'image2.jpg',
-      description: 'Card 2 description',
-      link: '/card2',
-    },
-    {
-      id: 3,
-      image: 'image3.jpg',
-      description: 'Card 3 description',
-      link: '/card3',
-    },
-  ];
+
+const Toolkit = () => {
 
   return (
+
+    <div className='bg-primary w-full'>
+
     <div>
-      <AppbarTwo />
-      <h2>Recommended for You</h2>
-      <div className="card-row">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            image={card.image}
-            description={card.description}
-            link={card.link}
-          />
-        ))}
+      <AppbarTwo/>
       </div>
-      <h2>Viewed By Others</h2>
-      {/* Add the section for "Viewed By Others" here */}
+      
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+         <CardUser/>
+        </div>
+      </div> 
+      
+      <div className={`bg-primary ${styles.flexStart}`}>
+        <div className={`${styles.boxWidth}`}>
+         <CardOthers/>
+        </div>
+      </div>
+
     </div>
-  );
+  )
 }
+
+export default Toolkit

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Appbar from '../components/Appbar.jsx'
 import { Box, useMediaQuery } from "@mui/material";
@@ -50,4 +51,3 @@ const _id = "64902290c2ce5fe7b8ea4dac";
 
   )
 }
-

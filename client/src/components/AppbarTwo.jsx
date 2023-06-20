@@ -22,7 +22,7 @@ const AppbarTwo = () => {
     const primaryDark = theme.palette.primary.dark;
     const alt = theme.palette.background.alt;
 
-    const fullName = "Maverick";
+    const fullName = "Wei Lun";
     // const fullName = `${user.firstName} ${user.lastName}`;
 
     return (
@@ -30,21 +30,9 @@ const AppbarTwo = () => {
           <FlexBetween gap="1.75rem">
             
           <Typography fontWeight="bold" fontSize="20px" color="primary">
-            My Learning
+            <Dropdown/>
             </Typography>
-            {/* {isNonMobileScreens && (
-              <FlexBetween
-                backgroundColor={neutralLight}
-                borderRadius="9px"
-                gap="3rem"
-                padding="0.1rem 1.5rem"
-              >
-                <InputBase placeholder="Search..." />
-                <IconButton>
-                  <Search />
-                </IconButton>
-              </FlexBetween>
-            )} */}
+      
           </FlexBetween>
     
           {/* DESKTOP NAV */}

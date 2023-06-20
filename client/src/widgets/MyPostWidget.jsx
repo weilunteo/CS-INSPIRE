@@ -62,7 +62,7 @@ import {
     return (
       <WidgetWrapper>
         <FlexBetween gap="1.5rem">
-        <img src="https://ui-avatars.com/api/?name=Maverick+Mitchell"/>
+        <img src="https://ui-avatars.com/api/?name=WeiLun+Teo"/>
           <InputBase
             placeholder="What's on your mind..."
             onChange={(e) => setPost(e.target.value)}

@@ -77,3 +77,43 @@ export const features = [
     },
 
 ];
+
+export const toolkits = [
+  {
+    id: 1,
+    bias_type: 'Education',
+    icon: 'educationbias.png',
+    description: 'Tendency to prioritize candidates based on educational qualifications, potentially limiting diversity in the workplace.'
+  },
+  {
+    id: 2,
+    bias_type: 'Gender',
+    icon: 'genderbias.png',
+    description: 'Differential treatment or stereotypes based on gender, influencing evaluation of qualifications which limit opportunities.'
+  },
+  {
+    id: 3,
+    bias_type: 'Halo Effect',
+    icon: 'haloeffect.jpeg',
+    description: 'Forming positive impressions based on a single attribute, potentially overlooking crucial qualifications and skills.'
+  },
+  {
+    id: 4,
+    bias_type: 'Ageism',
+    icon: 'ageism.jpeg',
+    description: 'Bias against or preference for candidates based on age, limiting recognition of skills and expertise.'
+  },
+  {
+    id: 5,
+    bias_type: 'Horns Effect',
+    icon: 'hornseffect.jpg',
+    description: 'Negative perception or flaw influencing overall evaluation, hindering recognition of strengths and unique qualities.'
+  },
+  {
+    id: 6,
+    bias_type: 'Affinity Bias',
+    icon: 'affinitybias.jpeg',
+    description: 'The tendency to favor candidates who share similar traits, backgrounds, or interests as the decision-makers.'
+  }
+
+];
