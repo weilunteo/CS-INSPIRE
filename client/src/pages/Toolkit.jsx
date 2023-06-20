@@ -21,11 +21,11 @@ const Toolkit = () => {
         </div>
       </div> 
       
-      <div className={`bg-primary ${styles.flexStart}`}>
+      {/* <div className={`bg-primary ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
          <CardOthers/>
         </div>
-      </div>
+      </div> */}
 
     </div>
   )

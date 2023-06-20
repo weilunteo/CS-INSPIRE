@@ -46,7 +46,7 @@ const Result = () => {
           Restart
         </RouterLink>
 
-        <RouterLink to='/community' type="button"
+        <RouterLink to='/toolkit' type="button"
           className={`my-8 py-2  mx-20 bg-blue-gradient font-poppins flex flex-col items-center w-[12%]
           font-medium text-[18px] text-primary outline-none rounded ${styles}`}>
           Enter App
