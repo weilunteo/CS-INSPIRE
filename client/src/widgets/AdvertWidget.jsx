@@ -18,7 +18,7 @@ const AdvertWidget = () => {
         <Typography color={dark} variant="h5" fontWeight="500">
           Popular Toolkits
         </Typography>
-        <Typography color={medium} sx={{ fontWeight: "bold" }}>For You</Typography>
+        <Typography color={medium}>For You</Typography>
       </FlexBetween>
       <img
         width="100%"
@@ -28,7 +28,7 @@ const AdvertWidget = () => {
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>
-        <Typography color={main}>{randomToolkit.bias_type}</Typography>
+        <Typography color={main} sx={{ fontWeight: "bold" }}>{randomToolkit.bias_type} Bias</Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
         {randomToolkit.description}
