@@ -23,12 +23,14 @@ import {
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPosts } from "../redux/state";
+  import { createPost } from "../redux/post_reducer";
   
   const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
     const [post, setPost] = useState("");
+    
     const { palette } = useTheme();
     // const _id = useSelector((state) => state.user);
     const _id = "64902290c2ce5fe7b8ea4dac"
@@ -36,28 +38,44 @@ import {
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
     const mediumMain = palette.neutral.mediumMain;
     const medium = palette.neutral.medium;
-  
-    const handlePost = async () => {
-      const formData = new FormData();
-      formData.append("userId", _id);
-      formData.append("description", post);
-      if (image) {
-        formData.append("picture", image);
-        formData.append("picturePath", image.name);
-      }
-  
-      const response = await fetch(`http://localhost:3000/posts`, {
-        method: "POST",
-        // headers: { Authorization: `Bearer ${token}` },
-        body: formData,
-      });
-      const posts = await response.json();
-      console.log(response)
-      console.log(posts);
-      dispatch(setPosts({ posts }));
+    const posts = useSelector((state) => state.posts);
+
+    const handlePost = () => {
+      const newPost = {
+        userId: _id,
+        description: post,
+        picturePath: image ? image.name : null,
+      };
+    
+      dispatch(createPost(newPost));
       setImage(null);
       setPost("");
+      console.log(newPost);
     };
+  
+  
+    // const handlePost = async () => {
+    //   const formData = new FormData();
+    //   formData.append("userId", _id);
+    //   formData.append("description", post);
+    //   if (image) {
+    //     formData.append("picture", image);
+    //     formData.append("picturePath", image.name);
+    //   }
+  
+    //   const response = await fetch(`http://localhost:3000/posts`, {
+    //     method: "POST",
+    //     headers: { Authorization: `Bearer ${token}` },
+    //     body: formData,
+    //   });
+
+    //   const posts = await response.json();
+    //   console.log(response)
+    //   console.log(posts);
+    //   dispatch(setPosts({ posts }));
+    //   setImage(null);
+    //   setPost("");
+    // };
   
     return (
       <WidgetWrapper>

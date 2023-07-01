@@ -5,8 +5,8 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import UserWidget from '../widgets/UserWidget'
 import MyPostWidget from '../widgets/MyPostWidget'
-// import PostWidget from '../widgets/PostWidget'
-// import PostsWidget from '../widgets/PostsWidget'
+import NewPost from '../widgets/NewPost'
+import CurrentPost from '../widgets/CurrentPost'
 import AdvertWidget from '../widgets/AdvertWidget'
 import FriendListWidget from '../widgets/FriendListWidget'
 
@@ -36,6 +36,8 @@ const _id = "64902290c2ce5fe7b8ea4dac";
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
           <MyPostWidget />
+          <NewPost/>
+          <CurrentPost/>
           {/* <PostsWidget userId={_id} /> */}
         </Box>
         {isNonMobileScreens && (
