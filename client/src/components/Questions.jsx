@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import data from '../database/data';
+import CloseIcon from '@mui/icons-material/Close';  
 
 /** Custom Hook */
 import { useFetchQuestion } from '../hooks/FetchQuestion';
@@ -30,7 +31,10 @@ export default function Questions({ onChecked }) {
 
   return (
     <div className='questions py-8 flex items-center justify-center'>
-       <div className='card bg-white p-4 rounded shadow px-10 mt-20 mx-20' style={{ width: '800px', height: '300px' }}>
+       <div className='card bg-white p-4 rounded shadow px-10 mt-20 mx-20' style={{ width: '800px', height: '300px', position: 'relative'}}>
+    
+       {/* <CloseIcon className='absolute top-2 right-2' onClick={() => navigate.push('/community')}/> */}
+        
         <p className='font-poppins mb-6 ss:text-[14px] text-[14px]'>Question {questions?.id} of {data.length}</p>
         <h2 className='font-poppins font-semibold mb-6 text-[20px]'>{questions?.question}</h2>
 

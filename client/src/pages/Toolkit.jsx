@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../style'
-import CardOthers from '../components/CardOthers'
 import CardUser from '../components/CardUser'
 import AppbarTwo from '../components/AppbarTwo'
 

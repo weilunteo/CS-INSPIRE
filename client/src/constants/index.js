@@ -111,7 +111,7 @@ export const toolkits = [
   },
   {
     id: 6,
-    bias_type: 'Affinity Bias',
+    bias_type: 'Affinity',
     icon: 'affinitybias.jpeg',
     description: 'The tendency to favor candidates who share similar traits, backgrounds, or interests as the decision-makers.'
   }
