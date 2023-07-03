@@ -13,7 +13,7 @@ import Result from './pages/Result';
 import Register from './pages/Register';
 import Community from './pages/Community';
 import Toolkit from './pages/Toolkit';
-import HornsEffect from './pages/HornsEffect';
+import HaloEffect from './pages/HaloEffect';
 
 
 const App = () => {
@@ -34,7 +34,7 @@ const App = () => {
           <Route path="/result" element={<Result />} />
           <Route path="/community" element={<Community />} />
           <Route path="/toolkit" element={<Toolkit />} />
-          <Route path="/toolkit/horns-effect" element={<HornsEffect />} />
+          <Route path="/toolkit/halo-effect" element={<HaloEffect />} />
 
         </Routes>
     </ThemeProvider>

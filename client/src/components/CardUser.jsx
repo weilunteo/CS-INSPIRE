@@ -5,15 +5,43 @@ import { toolkits } from '../constants';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-
 export default function CardUser() {
-  const groupedToolkits = chunkArray(toolkits, 3);
+  const forYouToolkits = toolkits.filter(
+    (toolkit) =>
+      toolkit.bias_type === 'Education' ||
+      toolkit.bias_type === 'Ageism' ||
+      toolkit.bias_type === 'Halo Effect'
+  );
+
+  const otherToolkits = toolkits.filter(
+    (toolkit) =>
+      toolkit.bias_type !== 'Education' &&
+      toolkit.bias_type !== 'Ageism' &&
+      toolkit.bias_type !== 'Halo Effect'
+  );
+
+  const groupedForYouToolkits = chunkArray(forYouToolkits, 3);
+  const groupedOtherToolkits = chunkArray(otherToolkits, 3);
 
   return (
     <section id="testimonials" className={`${styles.paddingY} ${styles.flexCenter} flex-col relative`}>
-      <h2 className={styles.heading2} style={{ textAlign: 'center' }}>Toolkits</h2>
+
       <div className="flex flex-wrap justify-center">
-        {groupedToolkits.map((group, index) => (
+         <h2 className={styles.heading2} style={{ textAlign: 'center' }}>Recommended For You</h2>
+
+        {groupedForYouToolkits.map((group, index) => (
+          <div className="flex justify-center" key={index}>
+            {group.map((card) => (
+              <div className="w-[300px] h-full p-2 flex" key={card.id}>
+                <SingleCard {...card} />
+              </div>
+            ))}
+          </div>
+        ))}
+
+    <h2 className={styles.heading2} style={{ textAlign: 'center' }}>People Also Viewed</h2>
+
+        {groupedOtherToolkits.map((group, index) => (
           <div className="flex justify-center" key={index}>
             {group.map((card) => (
               <div className="w-[300px] h-full p-2 flex" key={card.id}>

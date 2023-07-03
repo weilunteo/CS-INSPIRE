@@ -75,7 +75,8 @@ import linkedinImage from "../assets/linkedin.png";
               >
                 {firstName} {lastName}
               </Typography>
-              <Typography color={medium}>{friends.length} friends</Typography>
+              {/* <Typography color={medium}>{friends.length} friends</Typography> */}
+              <Typography color={medium}>10 friends</Typography>
             </Box>
           </FlexBetween>
           <ManageAccountsOutlined />

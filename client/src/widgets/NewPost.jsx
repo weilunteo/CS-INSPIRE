@@ -11,6 +11,7 @@ import WidgetWrapper from "../components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import BackgroundLetterAvatar from "../components/Avatars";
 import { createPost } from "../redux/post_reducer";
+import PlaceIcon from '@mui/icons-material/Place';
 
 
 const NewPost = () => {
@@ -23,7 +24,7 @@ const NewPost = () => {
   const primary = palette.primary.main;
 
   const name = "Wei Lun Teo";
-  const location = "📍Singapore";
+  const location = `Singapore`;
   const userPicturePath = "https://ui-avatars.com/api/?name=WeiLun+Teo";
  
   const latestPost = useSelector((state) => state.posts.posts[state.posts.posts.length - 1]);
@@ -68,7 +69,8 @@ const NewPost = () => {
         />
         <Box>
           <Typography variant="h6">{name}</Typography>
-          <Typography variant="subtitle1" sx={{ color: "#a9a9a9", fontSize: "12px" }}>
+          <Typography variant="subtitle1" sx={{ color: "#a9a9a9", fontSize: "13px" }}>
+            <PlaceIcon/>
             {location}
           </Typography>
         </Box>

@@ -4,8 +4,10 @@ import Questions from '../components/Questions';
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion';
 import { PushAnswer } from '../hooks/setResult';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+
 
 export default function Quiz() {
   const [check, setChecked] = useState(undefined);
@@ -49,6 +51,13 @@ export default function Quiz() {
     <div className={`h-screen bg-primary ${styles.paddingX}`}>
 
       <Toaster/>
+
+      <Link to="/toolkit">
+      <button className="absolute top-0 right-0 bg-primary text-white px-4 py-2 my-8 mx-4 rounded flex items-center">
+        Exit
+        <ExitToAppIcon className="ml-2" />
+      </button>
+    </Link>
       
       <Questions onChecked={onChecked} /> 
 

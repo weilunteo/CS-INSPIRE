@@ -10,6 +10,7 @@ import FlexBetween from "../components/FlexBetween";
 import WidgetWrapper from "../components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import BackgroundLetterAvatar from "../components/Avatars";
+import PlaceIcon from '@mui/icons-material/Place';
 
 const CurrentPost = () => {
   const [isComments, setIsComments] = useState(false);
@@ -24,7 +25,7 @@ const CurrentPost = () => {
   const commenters = ["Jake Dawson", "Sandra Oh", "Mike Wazowski"];
   const description =
     "I recently had the opportunity to engage with diverse perspectives and stories shared by individuals at the 'Break-Bias' session hosted by Zoom last week. It inspired me to actively educate myself on recognizing and mitigating biases in my own approach to hiring. By incorporating inclusive practices and promoting diversity, we can create a more equitable and inclusive workplace that harnesses the full potential of all individuals.";
-  const location = "📍 New York";
+  const location = `Singapore`;
   const tags = "#BiasAwareness #InclusiveHiring #FairWorkplace";
   const picturePath = "break-bias.gif";
   const userPicturePath = "https://ui-avatars.com/api/?name=Monica+Barbaro";
@@ -65,7 +66,8 @@ const CurrentPost = () => {
         />
         <Box>
           <Typography variant="h6">{name}</Typography>
-          <Typography variant="subtitle1" sx={{ color: "#a9a9a9", fontSize: "12px" }}>
+          <Typography variant="subtitle1" sx={{ color: "#a9a9a9", fontSize: "13px" }}>
+            <PlaceIcon/>
             {location}
           </Typography>
         </Box>

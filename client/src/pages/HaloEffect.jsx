@@ -21,7 +21,7 @@ export default function HornsEffect() {
       <div className="w-1/5 bg-gray-200 border-r border-gray-400">
         {/* Course Image */}
         <div>
-        <img src={`../src/assets/hornseffect.jpg`} alt="Bias Image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <img src={`../src/assets/haloeffect.jpeg`} alt="Bias Image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
     
 
@@ -31,9 +31,9 @@ export default function HornsEffect() {
           <div>
           </div>
           <div className="text-left p-4 mb-8 font-poppins font-normal ss:text-[14px]">
-          The horns effect is the opposite of the halo effect. 
-          It occurs when a negative impression of one characteristic of an individual dominates the perception of the individual as a whole. 
-          <br/> <br/>For example, if a person is considered to be rude or arrogant, this negative impression might overshadow other positive characteristics that the person possesses.
+          The halo effect is a cognitive bias that affects our perception of others. 
+          It occurs when a positive impression of one characteristic of an individual influences our overall perception of their character. 
+          <br/> <br/>For example, if a person is considered to be attractive or successful, this positive impression might overshadow any negative characteristics they might possess.
         </div>
 
         </div>
@@ -48,7 +48,7 @@ export default function HornsEffect() {
     </Link>
 
         <div className="text-left p-4 mb-4 font-poppins font-semibold ss:text-[32px]">
-            Horns Effect
+            Halo Effect
         </div>
         
 
