@@ -59,6 +59,7 @@ export default function BasicTabs() {
   useEffect(() => {
     // Update the progress value in localStorage whenever it changes
     localStorage.setItem('progress', progress.toString());
+    // localStorage.clear()
   }, [progress]);
 
   const handleChange = (event, newValue) => {

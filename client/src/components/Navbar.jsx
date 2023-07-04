@@ -13,8 +13,8 @@ const [toggle, setToggle] = useState(false);
 console.log(navLinks)
 
   return (
-    <div className='w-full flex py-6 justify-between items-center'>
-        <img src={logo} alt='cs-logo' className="w-[200px] h-[100px]"/>
+    <div className='w-full flex py-12 justify-between items-center'>
+        {/* <img src={logo} alt='cs-logo' className="w-[200px] h-[100px]"/> */}
         <ul className="list-none sm:flex hidden justify-end items-center flex-1 z-[100]">
         {navLinks.map((nav, index) => (
             <li key={nav.id} className="font-poppins font-normal text-[16px] text-white mr-10">
