@@ -50,7 +50,7 @@ The client will be served on `http://localhost:5173`.
 
 ## Contributing
 
-Contributions from the community to make Your Ultimate Bias Buster Tool even better are welcome. If you'd like to contribute, please follow these steps:
+As this is still much potential for future work, contributions from the community to make this platform even better are welcome. If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
