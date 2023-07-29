@@ -50,7 +50,7 @@ The client will be served on `http://localhost:5173`.
 
 ## Contributing
 
-As this is still much potential for future work, contributions from the community to make this platform even better are welcome. If you'd like to contribute, please follow these steps:
+As there is still much potential for future work, contributions to make this platform even better are welcome. If you'd like to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
