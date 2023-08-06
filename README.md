@@ -6,8 +6,7 @@
 
 Welcome to Your Ultimate Bias Buster Tool, an individual full-stack MERN project developed as part of the 10-week INSPIRE mentorship programme. This platform aims to address unconscious biases in the recruitment process by providing tools and insights to detect and prevent biases, fostering inclusivity in the talent acquisition process. <br>
 
-Here is the link to the demo of this app - https://drive.google.com/file/d/1QkahnrmyePPiqdBYrjlu7OELSiSwkJnK/view?usp=sharing <br>
-(Note: The video does not contain any audio)
+Here is the link to the demo of this app - https://drive.google.com/file/d/1QkahnrmyePPiqdBYrjlu7OELSiSwkJnK/view?usp=sharing (Note: The video does not contain any audio)
 
 ## Features
 
